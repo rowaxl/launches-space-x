@@ -26,7 +26,10 @@ const server = new ApolloServer({
     const user = users && users[0] || null;
 
     return { user: { ...user.dataValues } };
-  }
+  },
+  engine: {
+    reportSchema: true,
+  },
 });
 
 server.listen().then(({ url }) => {
